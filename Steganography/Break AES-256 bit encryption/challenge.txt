@@ -1,0 +1,24 @@
+Break AES-256 bit encryption
+Steganography Moderate
+100 pts
+Description
+
+Decrypt the encrypted file 'encrypted.enc' to uncover the hidden flag within. You are not provided with the encryption key, requiring advanced cryptanalysis skills to solve this challenge.
+Hints
+The encryption key is 7 characters long
+Uses Openssl and salt as AES-256 bit encryption.Password = Comolho
+
+Command used : openssl enc -aes-256-cbc -d -salt -in encrypted.enc -out flag.txt -k Comolho
+
+cat flag.txt
+Flag{ThisIsTheSecretFlag}
+
+Actual vulnerability summary
+
+Issue	                      Explanation
+Password disclosure	      Password was provided in the hint
+Weak KDF	              OpenSSL EVP_BytesToKey (MD5)
+Short password	              7 characters brute-forceable
+Misconfiguration	      AES used with weak password protection
+
+Weak password-based encryption implementation

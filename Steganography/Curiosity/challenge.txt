@@ -1,0 +1,71 @@
+Curiosity
+Steganography Moderate
+100 pts
+Description
+
+It's thundering outside and you are you at your desk having solved 4 forensics challenges so far. Just pray to god you solve this one. You might want to know that sometimes too much curiosity hides the flag.
+Hints
+Write a script to get the .png file back from the .bin
+use binwalk
+
+commands :
+file flag,png 
+flag,png: cannot open `flag,png' (No such file or directory)
+                                                                                ls
+a.bin  Curosity.zip  _Curosity.zip.extracted  fix.py  flag.png
+                                                                                
+ file flag.png 
+flag.png: PNG image data, 3142 x 1189, 8-bit/color RGBA, non-interlaced
+                                                                                binwalk flag.png        
+
+DECIMAL       HEXADECIMAL     DESCRIPTION
+--------------------------------------------------------------------------------
+0             0x0             PNG image, 3142 x 1189, 8-bit/color RGBA, non-interlaced
+91            0x5B            Zlib compressed data, compressed
+60048         0xEA90          PNG image, 3142 x 1189, 8-bit/color RGBA, non-interlaced
+60139         0xEAEB          Zlib compressed data, compressed
+
+binwalk -e flag.png
+
+DECIMAL       HEXADECIMAL     DESCRIPTION
+--------------------------------------------------------------------------------
+91            0x5B            Zlib compressed data, compressed
+60139         0xEAEB          Zlib compressed data, compressed
+
+WARNING: One or more files failed to extract: either no utility was found or it's unimplemented
+
+dd if=flag.png of=hidden.png bs=1 skip=60048
+68136+0 records in
+68136+0 records out
+68136 bytes (68 kB, 67 KiB) copied, 0.0848932 s, 803 kB/s
+                                                                                
+file hidden.png
+hidden.png: PNG image data, 3142 x 1189, 8-bit/color RGBA, non-interlaced
+                                                                                
+ eog hidden.png
+
+flag{scr1pt1ng_r34lly_t0ugh_a4n't_1t??}
+
+solution chain:
+
+zip
+ ↓
+.bin file
+ ↓
+corrupted PNG header
+ ↓
+script to repair bytes
+ ↓
+recover PNG
+ ↓
+find second embedded PNG
+ ↓
+extract it
+ ↓
+flag in image
+
+Final vulnerability summary
+Issue	                        Explanation
+Magic byte obfuscation	        PNG header altered to hide file type
+Hidden file concatenation	Second PNG appended inside image
+Improper file validation	Tools only detect first file

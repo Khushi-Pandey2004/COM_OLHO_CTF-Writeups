@@ -1,0 +1,3 @@
+flag:{685-295-741}
+
+location : sharedStrings.xml

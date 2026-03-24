@@ -1,0 +1,159 @@
+File Analysis image based (Level-1)
+Forensics Medium
+50 pts
+Description
+
+In this CTF mission, you're an operative for Mainfold, a secretive organization. A mole inside Mainfold has been leaking data to criminals. Your team sent deceptive files to five suspects. Examine the returned data to unveil the mole and find the hidden 'Flag
+Hints
+Examin the EXIF & metadata of the JPG files.
+Find Common grounds
+
+FLAG : Latitude: 45.67890, Longitude: -75.98765
+
+exiftool on all .jpg files
+only file 4 had different latitude and longitude coordinates. thus they were the flag.
+
+exiftool file1.jpg     
+ExifTool Version Number         : 13.50
+File Name                       : file1.jpg
+Directory                       : .
+File Size                       : 26 kB
+File Modification Date/Time     : 2026:03:18 00:15:11+05:30
+File Access Date/Time           : 2026:03:18 00:15:58+05:30
+File Inode Change Date/Time     : 2026:03:18 00:15:58+05:30
+File Permissions                : -rw-rw-r--
+File Type                       : JPEG
+File Type Extension             : jpg
+MIME Type                       : image/jpeg
+JFIF Version                    : 1.01
+Resolution Unit                 : inches
+X Resolution                    : 72
+Y Resolution                    : 72
+XMP Toolkit                     : Image::ExifTool 12.65
+Location                        : Latitude: 37.12345, Longitude: -122.54321
+Device                          : Razeraquafina 4589
+Image Width                     : 236
+Image Height                    : 419
+Encoding Process                : Progressive DCT, Huffman coding
+Bits Per Sample                 : 8
+Color Components                : 3
+Y Cb Cr Sub Sampling            : YCbCr4:2:0 (2 2)
+Image Size                      : 236x419
+Megapixels                      : 0.099
+                                                                                
+┌──(predator㉿kali)-[~/Desktop/com_olho_ctf/Forensics/File Analysis image based (Level-1)]
+└─$ exiftool file2.jpg
+ExifTool Version Number         : 13.50
+File Name                       : file2.jpg
+Directory                       : .
+File Size                       : 33 kB
+File Modification Date/Time     : 2026:03:18 00:15:14+05:30
+File Access Date/Time           : 2026:03:18 00:16:17+05:30
+File Inode Change Date/Time     : 2026:03:18 00:16:17+05:30
+File Permissions                : -rw-rw-r--
+File Type                       : JPEG
+File Type Extension             : jpg
+MIME Type                       : image/jpeg
+JFIF Version                    : 1.01
+Resolution Unit                 : inches
+X Resolution                    : 72
+Y Resolution                    : 72
+XMP Toolkit                     : Image::ExifTool 12.65
+Location                        : Latitude: 37.12345, Longitude: -122.54321
+Device                          : I am Jack Ryan
+Image Width                     : 236
+Image Height                    : 419
+Encoding Process                : Progressive DCT, Huffman coding
+Bits Per Sample                 : 8
+Color Components                : 3
+Y Cb Cr Sub Sampling            : YCbCr4:2:0 (2 2)
+Image Size                      : 236x419
+Megapixels                      : 0.099
+                                                                                
+┌──(predator㉿kali)-[~/Desktop/com_olho_ctf/Forensics/File Analysis image based (Level-1)]
+└─$ exiftool file3.jpg
+ExifTool Version Number         : 13.50
+File Name                       : file3.jpg
+Directory                       : .
+File Size                       : 21 kB
+File Modification Date/Time     : 2026:03:18 00:15:16+05:30
+File Access Date/Time           : 2026:03:18 00:16:32+05:30
+File Inode Change Date/Time     : 2026:03:18 00:16:35+05:30
+File Permissions                : -rw-rw-r--
+File Type                       : JPEG
+File Type Extension             : jpg
+MIME Type                       : image/jpeg
+JFIF Version                    : 1.01
+Resolution Unit                 : inches
+X Resolution                    : 72
+Y Resolution                    : 72
+XMP Toolkit                     : Image::ExifTool 12.65
+Location                        : Latitude: 37.12345, Longitude: -122.54321
+Device                          : Here we go again
+Image Width                     : 236
+Image Height                    : 233
+Encoding Process                : Progressive DCT, Huffman coding
+Bits Per Sample                 : 8
+Color Components                : 3
+Y Cb Cr Sub Sampling            : YCbCr4:2:0 (2 2)
+Image Size                      : 236x233
+Megapixels                      : 0.055
+                                                                                
+┌──(predator㉿kali)-[~/Desktop/com_olho_ctf/Forensics/File Analysis image based (Level-1)]
+└─$ exiftool file4.jpg
+ExifTool Version Number         : 13.50
+File Name                       : file4.jpg
+Directory                       : .
+File Size                       : 17 kB
+File Modification Date/Time     : 2026:03:18 00:15:17+05:30
+File Access Date/Time           : 2026:03:18 00:16:52+05:30
+File Inode Change Date/Time     : 2026:03:18 00:16:52+05:30
+File Permissions                : -rw-rw-r--
+File Type                       : JPEG
+File Type Extension             : jpg
+MIME Type                       : image/jpeg
+JFIF Version                    : 1.01
+Resolution Unit                 : inches
+X Resolution                    : 96
+Y Resolution                    : 96
+XMP Toolkit                     : Image::ExifTool 12.65
+Location                        : Latitude: 45.67890, Longitude: -75.98765
+Device                          : You Gotta be kidding me
+Image Width                     : 236
+Image Height                    : 283
+Encoding Process                : Progressive DCT, Huffman coding
+Bits Per Sample                 : 8
+Color Components                : 3
+Y Cb Cr Sub Sampling            : YCbCr4:2:0 (2 2)
+Image Size                      : 236x283
+Megapixels                      : 0.067
+                                                                                
+┌──(predator㉿kali)-[~/Desktop/com_olho_ctf/Forensics/File Analysis image based (Level-1)]
+└─$ exiftool file5.jpg
+ExifTool Version Number         : 13.50
+File Name                       : file5.jpg
+Directory                       : .
+File Size                       : 14 kB
+File Modification Date/Time     : 2026:03:18 00:15:19+05:30
+File Access Date/Time           : 2026:03:18 00:17:08+05:30
+File Inode Change Date/Time     : 2026:03:18 00:17:08+05:30
+File Permissions                : -rw-rw-r--
+File Type                       : JPEG
+File Type Extension             : jpg
+MIME Type                       : image/jpeg
+JFIF Version                    : 1.01
+Resolution Unit                 : None
+X Resolution                    : 1
+Y Resolution                    : 1
+XMP Toolkit                     : Image::ExifTool 12.65
+Location                        : Latitude: 37.12345, Longitude: -122.54321
+Device                          : Its not me
+Image Width                     : 236
+Image Height                    : 251
+Encoding Process                : Progressive DCT, Huffman coding
+Bits Per Sample                 : 8
+Color Components                : 3
+Y Cb Cr Sub Sampling            : YCbCr4:2:0 (2 2)
+Image Size                      : 236x251
+Megapixels                      : 0.059
+

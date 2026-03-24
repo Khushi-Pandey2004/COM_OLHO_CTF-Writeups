@@ -1,0 +1,49 @@
+Mini_RSA
+Steganography High
+200 pts
+Description
+
+Groot is stuck on a spaceship somewhere, he wants to send a message to his team so he can get saved but doesn't want anyone in between to read it. So he encrypts the message and then sends it. Now other guardians are unable to understand it, please help them in knowing what's the message.
+Hints
+Write a script
+Use long_to_bytes in Crypto.Util.number
+
+flag{S0_y0u_c4n_s0lv3_s0m3_RSA}
+
+RSA encryption should be:
+
+c=memod  n
+c=m
+e
+modn
+
+But in your challenge:
+
+e = 3 (very small)
+
+No padding (like OAEP)
+
+Message is small
+
+So this happened:
+
+m3<n
+m
+3
+<n
+
+Which means:
+
+c=m3
+c=m
+3
+
+👉 The modulus never even mattered
+
+They basically did:
+
+Encrypted message = (message)^3
+
+So you just reverse it:
+
+message = cube_root(ciphertext

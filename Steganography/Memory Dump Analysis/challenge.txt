@@ -1,0 +1,88 @@
+Memory Dump Analysis
+Steganography Moderate
+100 pts
+Description
+
+In this CTF examin the .vmen file for memory dump analysis find the ip adress and submit the flag
+Hints
+Use Volatility to read the dump the data
+
+Flag{IP= 41.168.5.140, 125.19.103.198}
+
+Commands:
+
+ file memd.zip                                
+memd.zip: Zip archive data, at least v2.0 to extract, compression method=deflate
+
+unzip memd.zip  
+Archive:  memd.zip
+  inflating: cridex.vmem 
+
+(venv)─(predator㉿kali)-[~/…/com_olho_ctf/Steganography/Memory Dump Analysis/volatility3]
+└─$ ls              
+API_CHANGES.md   development  MANIFEST.in     test         volshell.py
+CITATION.cff     doc          pyproject.toml  volatility3  volshell.spec
+CODING_STYLE.md  LICENSE.txt  README.md       vol.py       vol.spec
+
+strings ../cridex.vmem | grep 8080
+Host: 41.168.5.140:8080
+http://188.40.0.138:8080/zb/v_01_a/in/cp.php
+CD_6B4E7939751D6D1B396F80803BAF90D4.298.560241.637
+C_6B4E7939751D6D1B396F80803BAF90D4
+{905667aa-acd6-11d2-8080-00805f6596d2}
+{905667aa-acd6-11d2-8080-00805f6596d2}-
+{905667aa-acd6-11d2-8080-00805f6596d2}
+{905667aa-acd6-11d2-8080-00805f6596d2}
+280801235959Z0
+280801235959Z0_1
+280801235959Z0
+280801235959Z0
+280801235959Z0
+280801235959Z0
+280801235959Z0_1
+{905667aa-acd6-11d2-8080-00805f6596d2}F
+280801235959Z0_1
+{25537BA6-77A8-11D2-9B6C-0000F8080861}
+http://188.40.0.138:8080/zb/v_01_a/in/cp.php
+Host: 41.168.5.140:8080
+280801235959Z0
+280801235959Z0_1
+://41.168.5.140:8080/zb/v_01_a/in/
+280801235959Z0_1
+280801235959Z0
+://41.168.5.140:8080/zb/v_01_a/in/
+: 41.168.5.140:8080
+280801235959Z0
+280801235959Z0_1
+://125.19.103.198:8080/zb/v_01_a/in/
+280801235959Z0
+140:8080
+http://188.40.0.138:8080/zb/v_01_a/in/cp.php
+8.40.0.138:8080/zb/v_01_a/in/cp.php
+
+therefore :
+host ip = 41.168.5.140  
+other ip = 125.19.103.198
+
+these 2 ip satisfy the format Flag{IP= xy.abc.d.efg, pqr.uv.wyx.gdh}
+
+thus we got our flag : Flag{IP= 41.168.5.140, 125.19.103.198}
+
+Final Pipeline Summary
+ZIP file
+↓
+Extract memory dump (.vmem)
+↓
+Identify OS (Volatility info)
+↓
+Locate suspicious process (PID 1484)
+↓
+Search memory for network artifacts
+↓
+Find IPs communicating on port 8080
+↓
+Format flag
+
+vulnerability : 
+Even if malware deletes logs or files:
+RAM still contains network indicators

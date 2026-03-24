@@ -1,0 +1,55 @@
+Menace
+Steganography Moderate
+75 pts
+Description
+
+Dont be a Menace. Find the Flag.
+Hints
+C'mon you need hint all the time?
+Alright! Look in the metadata kids.
+
+flag{7h3_r34l_ctf_15_7h3_fr13nd5_w3_m4k3_al0ng}
+
+commands: 
+unzip Menace.zip
+Archive:  Menace.zip
+  inflating: friend.jpeg   
+
+exiftool friend.jpeg
+ExifTool Version Number         : 13.50
+File Name                       : friend.jpeg
+Directory                       : .
+File Size                       : 6.5 kB
+File Modification Date/Time     : 2023:12:15 19:56:43+05:30
+File Access Date/Time           : 2023:12:15 19:56:46+05:30
+File Inode Change Date/Time     : 2026:03:17 00:34:58+05:30
+File Permissions                : -rw-rw-r--
+File Type                       : JPEG
+File Type Extension             : jpg
+MIME Type                       : image/jpeg
+JFIF Version                    : 1.01
+Exif Byte Order                 : Big-endian (Motorola, MM)
+X Resolution                    : 1
+Y Resolution                    : 1
+Resolution Unit                 : None
+Artist                          : flag{7h3_r34l_ctf_15_7h3_fr13nd5_w3_m4k3_al0ng}
+Y Cb Cr Positioning             : Centered
+Image Width                     : 266
+Image Height                    : 190
+Encoding Process                : Baseline DCT, Huffman coding
+Bits Per Sample                 : 8
+Color Components                : 3
+Y Cb Cr Sub Sampling            : YCbCr4:2:0 (2 2)
+Image Size                      : 266x190
+Megapixels                      : 0.051
+
+and we got the flag in image metadata
+thus Metadata Information Disclosure became the vulnerability
+
+✅ Summary
+
+Issue	                   Explanation
+Vulnerability	           Metadata Information Disclosure
+Cause	                   Sensitive data stored in EXIF metadata
+Impact	                   Anyone can extract hidden information
+Fix	                   Remove metadata before publishing images

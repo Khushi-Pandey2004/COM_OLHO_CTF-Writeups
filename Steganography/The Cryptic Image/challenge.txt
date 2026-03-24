@@ -1,0 +1,42 @@
+The Cryptic Image
+Steganography Easy
+10 pts
+Description
+
+A beautiful image. Or maybe more? if something more then use this password : flag
+Hints
+Think beyond pixels
+FLAG{}
+
+FLAG{St3g0_M4st3r_1f_You}
+
+commands:
+steghide extract -sf flag.jpeg                         
+Enter passphrase: 
+wrote extracted data to "flag.txt".
+
+cat flag.txt
+UEdTe0ZnM3QwX1o0ZmczZV8xZl9MYmh9
+                                    
+base 64
+cho UEdTe0ZnM3QwX1o0ZmczZV8xZl9MYmh9 | base64 -d
+PGS{Fg3t0_Z4fg3e_1f_Lbh} 
+
+rot13
+echo PGS{Fg3t0_Z4fg3e_1f_Lbh} | tr 'A-Za-z' 'N-ZA-Mn-za-m'
+CTF{St3g0_M4st3r_1s_You}
+
+as given format of flag : FLAG{}
+
+WE replace CTF with FLAG thus it becomes
+FLAG{St3g0_M4st3r_1s_You}
+
+Image
+↓
+steghide / binwalk
+↓
+Base64 / hex / ROT13 / XOR
+↓
+flag
+
+

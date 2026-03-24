@@ -1,0 +1,34 @@
+Headache
+Steganography High
+200 pts
+Description
+
+"I've had a headache since last evening. Is there a magic spell that can cure it immediately?"
+Hints
+Study the CTF
+Change Some bytes
+
+flag{sp3ll_15_89_50_4E_47}
+
+file Hedache.zip 
+Hedache.zip: Zip archive data, made by v2.0 UNIX, extract using at least v2.0, last modified Dec 09 2023 22:02:30, uncompressed size 89906, method=deflate
+                                                                                
+┌──(predator㉿kali)-[~/Desktop/com_olho_ctf/Steganography/Headache]
+└─$ unzip Hedache.zip
+Archive:  Hedache.zip
+  inflating: chal.png                
+                                                                                
+┌──(predator㉿kali)-[~/Desktop/com_olho_ctf/Steganography/Headache]
+└─$ file chal.png   
+chal.png: data
+
+ printf '\x89\x50\x4E\x47\x0D\x0A\x1A\x0A' | dd of=chal.png bs=1 count=8 conv=notrunc
+8+0 records in
+8+0 records out
+8 bytes copied, 0.000155273 s, 51.5 kB/s
+
+predator㉿kali)-[~/Desktop/com_olho_ctf/Steganography/Headache]
+└─$ file chal.png
+chal.png: PNG image data, 1265 x 687, 8-bit/color RGBA, non-interlaced
+    
+wrong png header

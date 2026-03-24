@@ -1,0 +1,15 @@
+wav File analysis
+Forensics Moderate
+100 pts
+Description
+
+Analyze a .wav file to find the hidden flag from all the noise
+Hints
+Use tools like Sonic or Audacity
+View under Spectrogram
+
+solution:
+just run in morse decoder
+and see the flag
+
+flag: e5353bb7b57578bd4da1c898a8e2d767
