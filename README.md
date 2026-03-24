@@ -49,7 +49,6 @@ CTF-Writeups/
 ├── Forensics/
 ├── OSINT/
 ├── Steganography/
-├── Web/ *(coming soon)*
 ├── Crypto/ *(coming soon)*
 
 Each challenge folder contains:
@@ -62,7 +61,6 @@ Each challenge folder contains:
 
 ## ⚠️ Disclaimer
 
-* Writeups are shared **only after CTF completion** or when allowed.
 * Large challenge files (e.g., memory dumps, PCAPs) are **not uploaded** due to GitHub limits.
   Instead, download links or references are provided.
 
